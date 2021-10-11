@@ -13,7 +13,6 @@
 </template>
 
 <script>
-// import item from '@/components/Index.vue'
 
 export default {
 name: 'Modal',

@@ -6,7 +6,6 @@
 </template>
 
 <script>
-//import Index from './components/Index.vue'
 import Modal from './components/Modal.vue'
 export default {
   name: 'App',
@@ -15,12 +14,5 @@ export default {
   
   }
 }
-
 </script>
 
-
-<style>
-
-
-
-</style>
