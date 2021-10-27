@@ -1,13 +1,19 @@
 <template>
   <transition name="fade"> 
     <div class="modal">
-        <div class="background" @click="handleBackgroundClick"></div>
+        <div class="background" @click="handleBackgroundClick">  
+        </div>
+        <div class="post" @click="handleBackgroundClick">
+         <img src="../assets/xicon.svg" alt="">
+        </div>
         <div class="content">
             <img :src="item.urls && item.urls.regular" alt="">
             <div class="details">
-                {{ item.user.name }} - {{ item.user.location }}
+                <h3>{{ item.user.name }}</h3>  
+                <h5>{{ item.user.location }}</h5>
             </div>
         </div>
+       
     </div>
   </transition> 
 </template>
@@ -53,15 +59,35 @@ methods: {
 }
 
 .content {
-    width: 450px;
-    height: 500px;
+    width: 70%;
+    height: 80%;
     background-color: #fff;
     margin: 45px auto;
     position: relative;
-}
+    border-radius: 5px;
+    }
 
 .content img {
-    height: 250px;
-    width: 250px;
+    height: 85%;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    object-fit: cover; 
+}
+
+.post{
+    position: relative;
+    top: 5%;
+    left: 87%;
+}
+.details{
+    color: #364765;
+}
+
+.details h3{
+    margin: 8px 20px 0 20px;
+}
+.details h5{
+    margin: 0 20px 0 20px;
+    opacity: 0.7;
 }
 </style>

@@ -1,13 +1,15 @@
 <template>
 <div class="container">
-  <div class="search">  
-    <label v-if="!showSearch">
-      <input type="text" class="input" label="search" v-model="query" placeholder="Search for photo" @change="searchCollection(), showSearch = !showSearch">
-    </label>
+  <div class="search"> 
+    <div class="iconSearch" v-if="!showSearch"> 
+      <label for="search"></label>
+      <img src="../assets/search.svg" alt="search_icon" id="icon">
+      <input type="text" class="input" v-model="query" placeholder="Search for photo" @change="searchCollection(), showSearch = !showSearch">
+    </div> 
     <div v-else-if="showSearch">
-     <h2> Search Results for "{{ query }}"</h2>
-    <router-link :to="''">Home</router-link>
+     <h2>Search Results for "{{ query }}"</h2>
     </div>
+    <div v-if="showSearch" @click="reset" class="reset"><img src="../assets/xicon.svg" alt=""></div>
   </div>  
   <div class="imagegrid">
     <div v-for="item in unsplashData" :key="item.id" class="image" @click="handleImageClick(item)">
@@ -53,7 +55,9 @@ export default {
       this.selectedImage = img;
       this.showModal = true;
     },
-
+    reset(){
+      this.showSearch = false;
+    },
     searchCollection(){
       this.showSearch = false; 
       const q = this.query ||'african';
@@ -88,18 +92,29 @@ body{
   justify-content: center;
   background-color: #DDE2E9;
   position: relative;
-  height: 25vh;
+  min-height: 25vh;
 }
 
-.search input{
-margin: 55px;
-padding: 5px 0 5px 55px;
-width: 850px;
-font-size: 16px;
-outline: none;
-border: none;
-height: 40px;
-border-radius:4px;
+.search img {
+  opacity: 0.5;
+}
+
+h2{
+  color: #364765;
+}
+.reset{
+  margin: 25px;
+}
+
+.input{
+    margin: 55px;
+    padding: 5px 0 5px 55px;
+    width: 850px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    height: 40px;
+    border-radius:4px;
 }
 
 .imagegrid {
@@ -111,32 +126,16 @@ border-radius:4px;
   top: 130px;
 }
 
-/* 
-.grid{
-  position: absolute;
-  top: 130px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: masonry;
-} */
 
-/* .grid.imagegrid > div:nth-child(1){
-  opacity: 0.7;
-} */
-
-label {
+.iconSearch {
   position: relative;
 }
 
-label:before {
-  content: "";
-  opacity: 35%;
-  position: absolute;
-  left: 75px;
-  top: 0;
-  bottom: 20px;
-  width: 25px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewBox='0 0 25 25' fill-rule='evenodd'%3E%3Cpath d='M16.036 18.455l2.404-2.405 5.586 5.587-2.404 2.404zM8.5 2C12.1 2 15 4.9 15 8.5S12.1 15 8.5 15 2 12.1 2 8.5 4.9 2 8.5 2zm0-2C3.8 0 0 3.8 0 8.5S3.8 17 8.5 17 17 13.2 17 8.5 13.2 0 8.5 0zM15 16a1 1 0 1 1 2 0 1 1 0 1 1-2 0'%3E%3C/path%3E%3C/svg%3E") center / contain no-repeat;
+#icon{
+    position: absolute;
+    left: 65px; 
+    top: 38%;
+  
 }
 
 .image {
@@ -171,5 +170,34 @@ label:before {
   margin-top: 0;
 }
 
+
+@media only screen and (min-width: 320px) and (max-width: 475px){
+  .input{
+    width: 200px;
+  }
+
+  .image{
+    width: 250px;
+    height: 250px;
+  }
+
+  .imagegrid{
+    position: static;
+  }
+  
+  #icon{
+    top: 42%;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .input{
+    width: 600px;
+  }
+
+  .imagegrid{
+    position: static;
+  } 
+}
 
 </style>

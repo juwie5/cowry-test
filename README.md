@@ -1,6 +1,7 @@
-    2
-    
-     # cowry
+# cowry
+```
+Frontend test by cowrywise
+```
 
 ## Project setup
 ```
