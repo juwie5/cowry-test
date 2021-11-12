@@ -68,7 +68,7 @@ methods: {
     }
 
 .content img {
-    height: 85%;
+    height: 85%; 
     width: 100%;
     border-radius: 5px 5px 0 0;
     object-fit: cover; 

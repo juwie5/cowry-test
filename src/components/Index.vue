@@ -12,13 +12,15 @@
     <div v-if="showSearch" @click="reset" class="reset"><img src="../assets/xicon.svg" alt=""></div>
   </div>  
   <div class="imagegrid">
-    <div v-for="item in unsplashData" :key="item.id" class="image" @click="handleImageClick(item)">
-              <img :src="item.urls.regular" alt="">
-              <div class="imagetext">
-                <h4>{{ item.user.name }}</h4>
-                <p>{{ item.user.location }}</p>   
-              </div>
-    </div>  
+    <masonry :cols="3" :gutter="5">
+      <div v-for="item in unsplashData" :key="item.id" class="image" @click="handleImageClick(item)">
+                <img :src="item.urls.regular" alt="">
+                <div class="imagetext">
+                  <h4>{{ item.user.name }}</h4>
+                  <p>{{ item.user.location }}</p>   
+                </div>
+      </div>  
+    </masonry>
   </div>
   <modal v-if="showModal" @backgroundClick="showModal = false" :item="selectedImage" />
 </div>
@@ -60,7 +62,7 @@ export default {
     },
     searchCollection(){
       this.showSearch = false; 
-      const q = this.query ||'african';
+      const q = this.query || 'african';
            const param = {
                query: q,
                page: 1,
@@ -140,10 +142,7 @@ h2{
 
 .image {
   position: relative;
-  width: 350px;
-  height: 350px;
-  margin: 15px;
-  
+  margin: 15px;  
 }
 
 .image img {
