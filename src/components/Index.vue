@@ -171,13 +171,11 @@ h2{
 
 
 @media only screen and (min-width: 320px) and (max-width: 475px){
+  /* .container{
+    
+  } */
   .input{
-    width: 200px;
-  }
-
-  .image{
-    width: 250px;
-    height: 250px;
+    width: 50%;
   }
 
   .imagegrid{
@@ -187,16 +185,19 @@ h2{
   #icon{
     top: 42%;
   }
+  .imagetext{
+    display: none;
+  }
 }
 
 @media screen and (max-width: 600px){
   .input{
-    width: 600px;
+    width: 60%;
   }
 
-  .imagegrid{
+  /* .imagegrid{
     position: static;
-  } 
+  }  */
 }
 
 </style>
