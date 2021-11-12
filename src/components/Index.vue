@@ -171,9 +171,6 @@ h2{
 
 
 @media only screen and (min-width: 320px) and (max-width: 475px){
-  /* .container{
-    
-  } */
   .input{
     width: 50%;
   }
