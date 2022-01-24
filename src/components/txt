@@ -1,0 +1,8 @@
+            document.onreadystatechange =() => {
+            if (document.readyState === 'interactive') {
+               this.isloaded = false
+              }
+             else if (document.readyState === 'complete') {
+             this.isloaded = true
+             }
+            }

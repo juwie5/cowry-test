@@ -41,53 +41,5 @@ methods: {
 </script>
 
 <style>
-.modal{
-    position: fixed;
-    left: 0;
-    top:0;
-    height: 100%;
-    width: 100%;
-}
 
-.background {
-    position: absolute;
-    left: 0;
-    top:0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0,0,0,0.5);
-}
-
-.content {
-    width: 70%;
-    height: 80%;
-    background-color: #fff;
-    margin: 45px auto;
-    position: relative;
-    border-radius: 5px;
-    }
-
-.content img {
-    height: 85%; 
-    width: 100%;
-    border-radius: 5px 5px 0 0;
-    object-fit: cover; 
-}
-
-.post{
-    position: relative;
-    top: 5%;
-    left: 87%;
-}
-.details{
-    color: #364765;
-}
-
-.details h3{
-    margin: 8px 20px 0 20px;
-}
-.details h5{
-    margin: 0 20px 0 20px;
-    opacity: 0.7;
-}
 </style>

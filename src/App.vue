@@ -1,18 +1,22 @@
 <template>
   <div>
-    
-    <router-view/>
-   </div>
+    <router-view></router-view>
+  </div>
 </template>
 
-<script>
+<script> 
 import Modal from './components/Modal.vue'
 export default {
   name: 'App',
   components: {
-    Modal
-  
+    Modal,  
   }
 }
 </script>
+
+<style lang="scss">
+ @import "styles/variables";
+ @import "styles/index";
+ @import "styles/modal";
+</style>
 

@@ -2,11 +2,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Index from '../components/Index.vue'
 import Modal from '../components/Modal.vue'
 
+
 const routes = [
   {
     path: '/',
     name: 'Index',
-    component: Index
+    component: Index,
   },
   {
    path: '/modal/:id',
@@ -15,7 +16,7 @@ const routes = [
   },
   {
     path: '',
-    name: 'home ',
+    name: 'home',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
