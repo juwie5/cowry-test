@@ -22,7 +22,7 @@
         </div> 
     <masonry :cols="3" :gutter="5">
       <div v-for="item in unsplashData" :key="item.id" class="image" @click="handleImageClick(item)">
-                <img @load="onImgLoad" :src="item.urls.regular" alt="">
+                <img :src="item.urls.regular" @load="onImgLoad" alt="">
                 <div class="imagetext">
                   <h4>{{ item.user.name }}</h4>
                   <p>{{ item.user.location }}</p>   
@@ -56,11 +56,6 @@ export default {
   },
 
   mounted() {
-    // document.onreadystatechange = () =>{
-    //     if(document.readyState == "complete"){
-    //         this.isloaded = true;
-    //     }
-    // },
     this.searchCollection();
   },
 
@@ -97,56 +92,5 @@ export default {
 
 
 <style lang="scss">
-.loader{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  
-  .bigbox{
-      width: 20em;
-      height: 22em;
-      margin: .5em;
-      animation: up 1s infinite;
-  }
-  .rect1{
-    width: 14em;
-    height: 1em;
-    margin: 5px;
-    position: relative;
-    top: 80%;
-    animation: move 1s infinite;
-  }
-  .rect2{
-    width: 7em;
-    height: 1em;
-    margin: 5px;
-    position: relative;
-    top: 80%;
-    animation: move 1s infinite;
-  }
 
-  @keyframes move {
-    0%{
-      background-color: #E6E6E6;
-    }
-    50%{
-      background-color: #eee;
-    }
-    100%{
-      background-color: #E6E6E6;
-    }
-  } 
-
-  @keyframes up {
-      0%{
-      background-color: #F5F5F5;
-    }
-    50%{
-      background-color: #eee;
-    }
-    100%{
-      background-color: #F5F5F5;
-    }
-  }
-}
 </style>
