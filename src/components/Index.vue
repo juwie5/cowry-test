@@ -1,15 +1,17 @@
 <template>
 <div class="container">
   <div class="search"> 
-    <div class="iconSearch" v-if="!showSearch"> 
-      <label for="search"></label>
-      <img src="../assets/search.svg" alt="search_icon" id="icon">
+    <div v-if="!showSearch"> 
+      <label for="search"></label> 
       <input type="text" class="input" v-model="query" placeholder="Search for photo" @change="searchCollection(), showSearch = !showSearch">
-    </div> 
-    <div v-else-if="showSearch">
-     <h2>Search Results for "{{ query }}"</h2>
     </div>
-    <div v-if="showSearch" @click="reset" class="reset"><img src="../assets/xicon.svg" alt=""></div>
+    <div v-else-if="!isloaded">
+      <h2>Searching for <span class="query">"{{ query }}"</span></h2>
+    </div> 
+    <div v-else class="reset">
+     <h2>Search Results for <span class="query">"{{ query }}"</span></h2>
+     <img @click="reset" src="../assets/xicon.svg" alt="">
+    </div>
   </div>  
   <div class="imagegrid">
       <div v-show="!isloaded" class="loader">
@@ -68,7 +70,9 @@ export default {
       this.showModal = true;
     },
     reset(){
-      this.showSearch = false;
+      this.showSearch = !this.showSearch;
+      this.query = "";
+      this.searchCollection();
     },
     searchCollection(){
       this.showSearch = false
@@ -81,6 +85,7 @@ export default {
            }
            search(param).then(res => {  
            this.unsplashData = res.results
+           console.log(res.results)
           })
        },
        onImgLoad(){
