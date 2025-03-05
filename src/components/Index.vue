@@ -9,12 +9,14 @@
           v-model="query"
           placeholder="Search for photo"
           @change="searchCollection(), (showSearch = !showSearch)"
+          
         />
       </div>
-      <div v-else-if="!isloaded">
+      <div class="reset" v-else-if="!isloaded">
         <h2>
           Searching for <span class="query">"{{ query }}"</span>
         </h2>
+        <img @click="reset" src="../assets/xicon.svg" alt="" />
       </div>
       <div v-else class="reset">
         <h2>
