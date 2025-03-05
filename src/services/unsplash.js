@@ -9,8 +9,9 @@ const BASE_ENDPOINT ="https://api.unsplash.com/"
 const PHOTOS_ENDPOINT = `${BASE_ENDPOINT}/search/photos`
 
 
-export async function search(param){
+export async function search(param, setLoading){
     try {
+        setLoading(true);
         const res = await axios.get(PHOTOS_ENDPOINT, {
             params: {
                 client_id: ACCESS_KEY,
@@ -26,7 +27,8 @@ export async function search(param){
         }
         
     }catch (err) {
-        console.log(err);
-        return null;
+        return err;
+    } finally {
+        setLoading(false);
     } 
 }

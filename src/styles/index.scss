@@ -9,6 +9,9 @@
   padding: 55px;
   overflow-x: hidden;
 }
+.search-input {
+  width: 97%;
+}
 
 h2 {
   color: #364765;
@@ -89,6 +92,7 @@ h2 {
     width: 20em;
     height: 22em;
     margin: .5em;
+    border-radius: 4px;
     animation: up 1s infinite;
   }
 
@@ -99,6 +103,7 @@ h2 {
     position: relative;
     top: 80%;
     animation: move 1s infinite;
+    border-radius: 4px;
   }
 
   .rect2 {
@@ -108,6 +113,7 @@ h2 {
     position: relative;
     top: 80%;
     animation: move 1s infinite;
+    border-radius: 4px;
   }
 
   @keyframes move {
@@ -141,9 +147,6 @@ h2 {
 
 
 @media only screen and (min-width: 320px) and (max-width: 475px) {
-  .input {
-    width: 50%;
-  }
 
   .imagegrid {
     position: static;
@@ -159,13 +162,5 @@ h2 {
       height: 17em;
     }
   }
-
-}
-
-@media screen and (max-width: 600px) {
-  .input {
-    width: 60%;
-  }
-
 
 }
